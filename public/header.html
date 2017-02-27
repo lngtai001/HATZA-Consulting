@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+    <script type="text/javascript">
+      initApp = function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            // User is signed in.
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var uid = user.uid;
+            var providerData = user.providerData;
+            
+//            var jsonProviderData = JSON.parse(user.providerData);            
+//            console.log("  Name: "+(jsonProviderData.displayName));
+//            document.getElementById('username').innerHTML = displayName + ", "
+            console.log("  Name: "+displayName);
+            console.log("  email "+email);
+            console.log("  photoURL "+photoURL);
+            user.getToken().then(function(accessToken) {                
+//              document.getElementById('sign-in-status').textContent = 'Signed in';
+//              document.getElementById('account-details').textContent = JSON.stringify({
+//                displayName: displayName,
+//                email: email,
+//                emailVerified: emailVerified,
+//                photoURL: photoURL,
+//                uid: uid,
+//                accessToken: accessToken,
+//                providerData: providerData
+//              }, null, '  ');
+            });
+            
+            
+            
+          } else {
+              window.location = "login.html"; // User is signed out.Redirect to login page
+          }
+        }, function(error) {
+          console.log(error);
+        });
+        
+         var user = firebase.auth().currentUser;
+
+        if (user != null) {
+          user.providerData.forEach(function (profile) {
+            console.log("Sign-in provider: "+profile.providerId);
+            console.log("  Provider-specific UID: "+profile.uid);
+            console.log("  Name: "+profile.displayName);
+            console.log("  Email: "+profile.email);
+            console.log("  Photo URL: "+profile.photoURL);
+          });
+        }
+      };
+
+      window.addEventListener('load', function() {
+        initApp()
+      });
+    </script>
+    
+    <script>
+       
+    </script>
+    
+    <script>
+    function FirebaseLogout() {
+        firebase.auth().signOut().then(function() {
+            // Sign-out successful.
+            window.location = "login.html";
+          }, function(error) {
+            // An error happened.
+          });
+    }
+    </script>
+    
+    
+    

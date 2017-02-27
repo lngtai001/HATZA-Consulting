@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+    <title>WTPA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     <!-- JQuery -->    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <!-- Bootstrap (we want to call the css ASAP) -->
+    <link rel="stylesheet" href="css/dependencies/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="css/dependencies/custom.min.css">
+    <script src="js/dependencies/bootstrap.min.js"></script> 
+    
+    <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
+    <script src="node_modules/firebaseui/dist/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="node_modules/firebaseui/dist/firebaseui.css" />
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBua9WsFjdRrQUtWMGmHdfFG2fpFJ98Ppg",
+        authDomain: "wtpa-1479834006191.firebaseapp.com",
+        databaseURL: "https://wtpa-1479834006191.firebaseio.com",
+        storageBucket: "wtpa-1479834006191.appspot.com",
+        messagingSenderId: "831524360274"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: 'http://localhost/wtpa/public/index.html',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        tosUrl: 'terms.html'
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    
+  </head>
+  <body>
+      <div id="fb-root"></div>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.html">WTPA</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+<!--                <li class="active"><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
+                <li><a href="events.html#/">Events</a></li>
+                <li><a href="account.html#/">Account</a></li>-->
+                
+                
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                  
+<!--                <li><a href="profile.html">Profile</a></li>-->
+              </ul>
+           
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+
+      <div class="page-header" id="banner">
+        <div class="row">
+          
+         
+        </div>            
+     
+        <div class="row">
+<!--NAVBAR-->
+          <div  class="col-lg-3 col-md-3 col-sm-4">
+           
+            <br style="clear: left;" />
+          </div>
+        <div  class="col-lg-9 ">           
+           
+              <h1 align="left">Login</h1>
+              <div class="col-lg-9">            
+                
+                <div id="firebaseui-auth-container"></div>
+              </div> 
+              <br style="clear: left;" />
+          </div>
+        </div> 
+      <footer>
+        
+      </footer>
+ </div>
+
+    </div>    
+   
+    <script src="js/custom.js"></script>
+  </body>
+</html>
