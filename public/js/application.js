@@ -29,12 +29,20 @@ HATZA.config(["$stateProvider", "$urlRouterProvider",function($stateProvider, $u
         .state('dashboard.home', {
             //  Posts state. This state will contain nested views
             url: '/home',
-            templateUrl: 'modules/profile/page-dashboardHome.html'
+            templateUrl: 'modules/dashboard/page-dashboardHome.html'
         })
         .state('dashboard.profile', {
             //  Posts state. This state will contain nested views
             url: '/profile',
-            templateUrl: 'modules/profile/page-profile.html'
+            
+            views: {
+                '': {
+                    templateUrl: 'modules/profile/page-profile.html',
+                },
+                'map@dashboard.profile': {
+                   templateUrl: 'modules/profile/view-profile-map.html'
+                }
+            }
         })
         .state('dashboard.documents', {
             //  Posts state. This state will contain nested views
@@ -44,7 +52,11 @@ HATZA.config(["$stateProvider", "$urlRouterProvider",function($stateProvider, $u
         .state('dashboard.bookSession', {
             //  Posts state. This state will contain nested views
             url: '/bookSession',
-            templateUrl: 'modules/dashboard/page-bookSession.html'
+            views: {
+                '': {
+                    templateUrl: 'modules/dashboard/page-bookSession.html'
+                }
+            }
         })
         .state('dashboard.statementOfWork', {
             //  Posts state. This state will contain nested views

@@ -2522,8 +2522,9 @@ input[type="search"] {
 }
 input[type="radio"],
 input[type="checkbox"] {
-  margin: 4px 0 0;
-  margin-top: 1px \9;
+  transform: scale(3);
+  margin: 1em 2em ;
+  padding: 1em;
   line-height: normal;
 }
 input[type="file"] {

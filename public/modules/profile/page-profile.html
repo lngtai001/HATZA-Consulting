@@ -2,40 +2,42 @@
     <h1>Profile</h1>
     <p>This page shows your profile.</p>  
 
-
-    <table class="table" >
+    <div class="col-lg-6">
+        <table class="table" >
+            <tr>
+              <th>Name</th>
+              <td>{{profile.name}}</td>
+            </tr>
+            <tr>
+              <th>Surname</th>
+              <td>{{profile.name}}</td>
+            </tr>
+            <tr>
+              <th>Company</th>
+              <td>{{profile.name}}</td>
+            </tr>
+            <tr>
+              <th>Industry</th>
+              <td>{{profile.name}}</td>
+             </tr>
+            <tr> 
+              <th>Contact</th>
+              <td>{{profile.name}}</td>
+            </tr>
+             <tr> 
+              <th>Email</th>
+              <td>{{profile.name}}</td>
+            </tr>
+            <tr> 
+              <td><a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Edit</a> </td>
+            </tr>
+        </table>
+    </div>
     
-        <tr>
-          <th>Name</th>
-          <td>{{profile.name}}</td>
-        </tr>
-        <tr>
-          <th>Short Description</th>
-          <td>{{profile.name}}</td>
-        </tr>
-        <tr>
-          <th>Long Description</th>
-          <td>{{profile.name}}</td>
-         </tr>
-        <tr> 
-          <th>Website</th>
-          <td>{{profile.name}}</td>
-        </tr>
-         <tr> 
-          <th>Logo</th>
-          <td>{{profile.name}}</td>
-        </tr>
-         <tr> 
-          <th>Users</th>
-          <td>{{profile.name}}</td>        
-        </tr>
-      <tr> 
-
-
-           <!--| currency-->
-
-        <td><a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Edit</a> <a class="btn btn-small btn-danger" ng-click="removeMarker(marker.$id)">Delete</a></td>
-    </tr>
-
-    </table>
+    <div class="col-lg-6">       
+        <div ui-view="map"></div>        
+    </div>
+       
+    
+    
 </div>
