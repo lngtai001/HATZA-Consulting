@@ -1,39 +1,64 @@
 <div class="col-lg-10">  <!-- this div makes everything stay aligned next to the Navigation panel -->
     <h1>Profile</h1>
     <p>This page shows your profile.</p>  
-
-    <div class="col-lg-6">
-        <table class="table" >
-            <tr>
-              <th>Name</th>
-              <td>{{profile.name}}</td>
-            </tr>
-            <tr>
-              <th>Surname</th>
-              <td>{{profile.name}}</td>
-            </tr>
-            <tr>
-              <th>Company</th>
-              <td>{{profile.name}}</td>
-            </tr>
-            <tr>
-              <th>Industry</th>
-              <td>{{profile.name}}</td>
-             </tr>
-            <tr> 
-              <th>Contact</th>
-              <td>{{profile.name}}</td>
-            </tr>
-             <tr> 
-              <th>Email</th>
-              <td>{{profile.name}}</td>
-            </tr>
-            <tr> 
-              <td><a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Edit</a> </td>
-            </tr>
-        </table>
-    </div>
-    
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+        <div class="col-lg-6">
+            <table class="table" >
+                <div class="form-group">
+                    <tr>
+                      <th>Name</th>
+                      <td><input class="form-control" id="name" type="text"
+                            ng-model="profile.name" placeholder="{{profile.name}}"/>
+                      </td>
+                    </tr>
+                </div>
+                <div class="form-group">
+                    <tr>
+                      <th>Surname</th>
+                      <td><input class="form-control" id="surname" type="text"
+                            ng-model="profile.surname" placeholder="{{profile.surname}}"/>
+                      </td>
+                    </tr>
+                </div>
+                <div class="form-group">
+                    <tr>
+                      <th>Company</th>
+                      <td><input class="form-control" id="company" type="text"
+                            ng-model="profile.company" placeholder="{{profile.company}}"/>
+                      </td>
+                    </tr>
+                </div>
+                <div class="form-group">
+                    <tr>
+                      <th>Industry</th>
+                      <td><input class="form-control" id="industry" type="text"
+                            ng-model="profile.industry" placeholder="{{profile.industry}}"/>
+                      </td>
+                     </tr>
+                 </div>
+                <div class="form-group">
+                    <tr> 
+                      <th>Contact</th>
+                      <td><input class="form-control" id="contact" type="tel"
+                            ng-model="profile.contact" placeholder="{{profile.contact}}"/>
+                      </td>
+                    </tr>
+                </div>
+                <div class="form-group">
+                    <tr> 
+                     <th>Email</th>
+                     <td><input class="form-control" id="email" type="email"
+                           ng-model="profile.email" placeholder="{{profile.email}}"/>
+                     </td>
+                   </tr>
+                </div>
+                <tr> 
+                  <td><a ng-click="editProfile()" class="btn btn-small btn-primary">Save changes</a> </td>
+                </tr>
+            </table>
+        </div>
+    </form>
     <div class="col-lg-6">       
         <div ui-view="map"></div>        
     </div>

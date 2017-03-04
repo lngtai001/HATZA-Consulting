@@ -2,6 +2,7 @@
 <meta charset="utf-8">
     <script type="text/javascript">
       initApp = function() {
+          console.log("HEADER init");
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
             // User is signed in.
@@ -18,7 +19,9 @@
             console.log("  Name: "+displayName);
             console.log("  email "+email);
             console.log("  photoURL "+photoURL);
-            user.getToken().then(function(accessToken) {                
+            $scope.user = user;
+            user.getToken().then(function(accessToken) {
+                
 //              document.getElementById('sign-in-status').textContent = 'Signed in';
 //              document.getElementById('account-details').textContent = JSON.stringify({
 //                displayName: displayName,
@@ -40,8 +43,8 @@
           console.log(error);
         });
         
-         var user = firebase.auth().currentUser;
-
+        var user = firebase.auth().currentUser;
+        console.log("HEADER User"+user)
         if (user != null) {
           user.providerData.forEach(function (profile) {
             console.log("Sign-in provider: "+profile.providerId);
@@ -50,6 +53,9 @@
             console.log("  Email: "+profile.email);
             console.log("  Photo URL: "+profile.photoURL);
           });
+        }
+        else{
+            console.log("HEADER User IS NULL")
         }
       };
 

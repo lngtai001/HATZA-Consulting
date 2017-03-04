@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
       <meta charset="utf-8">
-    <title>WTPA</title>
+    <title>HATZA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
      <!-- JQuery -->    
@@ -21,23 +21,21 @@
     <script>
       // Initialize Firebase
       var config = {
-        apiKey: "AIzaSyBua9WsFjdRrQUtWMGmHdfFG2fpFJ98Ppg",
-        authDomain: "wtpa-1479834006191.firebaseapp.com",
-        databaseURL: "https://wtpa-1479834006191.firebaseio.com",
-        storageBucket: "wtpa-1479834006191.appspot.com",
-        messagingSenderId: "831524360274"
+        apiKey: "AIzaSyCDIpu2kuGJ1GEgdsix2HBXxh9BbXVhRSg", 
+        authDomain: "hatza-692c7.firebaseapp.com", 
+        databaseURL: "https://hatza-692c7.firebaseio.com/", 
+        storageBucket: "hatza-692c7.appspot.com",
+        messagingSenderId: "818303894622"
       };
       firebase.initializeApp(config);
     </script>
     <script type="text/javascript">
       // FirebaseUI config.
       var uiConfig = {
-        signInSuccessUrl: 'http://localhost/wtpa/public/index.html',
+        signInSuccessUrl: 'http://localhost/hatza/public/index.html',
         signInOptions: [
-          // Leave the lines as is for the providers you want to offer your users.
-          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-          firebase.auth.EmailAuthProvider.PROVIDER_ID
+          // Leave the lines as is for the providers you want to offer your users.          
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID
         ],
         // Terms of service url.
         tosUrl: 'terms.html'
@@ -47,6 +45,7 @@
       var ui = new firebaseui.auth.AuthUI(firebase.auth());
       // The start method will wait until the DOM is loaded.
       ui.start('#firebaseui-auth-container', uiConfig);
+      
     </script>
     
   </head>
@@ -63,7 +62,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index.html">WTPA</a>
+              <a class="navbar-brand" href="index.html">HATZA</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
