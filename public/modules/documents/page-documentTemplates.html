@@ -1,0 +1,33 @@
+<div class="col-lg-10">  <!-- this div makes everything stay aligned next to the Navigation panel -->
+    <h1>Document Templates</h1>
+    <p>This page allows you to manage your document templates.</p>  
+    <div class="col-lg-10" >
+        <form class="form" role="form" name="documentForm"> 
+            <table class="table" >
+                <tr><th></th> <td></td> </tr>
+                 <!--DYNAMIC ROWS-->            
+                <tr ng-repeat="documentTemplate in documentTemplates">
+                  <th>{{documentTemplate.name}}</th><td>
+                    <a ng-click="downloadDocument(documentTemplate.url)" class="btn btn-small btn-primary">Download</a>
+                    <a ng-click="deleteDocument(documentTemplate.uid,documentTemplate.url,documentTemplate.name)" class="btn btn-small btn-primary">Delete</a>  
+                    <select><option value="">{{documentTemplate.privilegeLevel}} &hellip;</option> </select></td>   </tr>
+                <!--END OF DYNAMIC ROWS-->
+                <!--UPLOAD DOCUMENTS-->
+                <tr><th><input class="form-control" id="documentName" type="text"ng-model="filename" placeholder="{{filename}}"/>
+                        <input type="file" onchange="angular.element(this).scope().uploadDocument(this)"  name="filename"  id="nameImg" multiple></th>
+                    <td><select ng-model="documentPrivilegeLevel"> 
+                            <option value="">Document privilege level &hellip;</option> 
+                            <option  ng-repeat="x in privilegeLevels">{{x}}</option>
+                        </select></td>
+                    <td><a type="submit" ng-click="documentUploadDB()" class="btn btn-small btn-primary">Add Document</a></td></tr>
+                <!--END OF UPLOAD DOCUMENTS-->
+                <!--UPLOAD MESSAGE-->
+                <tr>
+                    <th>
+                        <p>{{fileUploadStatus}} </p>
+                        <li ng-repeat="file in files">{{file.name}}</li></th></tr>
+                <!--END OF UPLOAD MESSAGE-->
+            </table>
+        </form>
+    </div>
+</div>

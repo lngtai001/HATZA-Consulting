@@ -3,29 +3,21 @@
     <div class="col-lg-6">
         <div ui-view>
             <table class="table" >
-                <tr>
-                    <th>Date</th>
-                    <td>display date here</td>
-                </tr>
-                <tr>
-                    <th>Time</th>
-                    <td>display time here</td>
-                </tr>
-
+                <tr><th>Date</th><td><input class="form-control" id="title"  type="date"</td></tr>
+                <tr><th>Time</th><td><input class="form-control" id="time"  type="time"</td></tr>
             </table>
 
             <form>
                 <div class="form-group">
-                    <label for="topic">Meeting Topic</label>
-                    <textarea class="form-control" rows="2" id="topic" placeholder="What is the topic of this meeting?"></textarea>
+                  <label for="topic">Meeting Topic</label>
+                  <textarea class="form-control" rows="2" id="topic" placeholder="What is the topic of this meeting?"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="message">Meeting Message</label>
-                    <textarea class="form-control"  rows="5" id="message" placeholder="What is this meeting about?"></textarea>
+                  <label for="message">Meeting Message</label>
+                  <textarea class="form-control"  rows="5" id="message" placeholder="What is this meeting about?"></textarea>
                 </div>
                 <a class="btn btn-small btn-primary">Request meeting</a>
             </form>
-
         </div>
     </div>
     <div class="col-lg-6">

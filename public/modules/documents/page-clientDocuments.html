@@ -1,0 +1,38 @@
+<div class="col-lg-10">  <!-- this div makes everything stay aligned next to the Navigation panel -->
+    <h1>Client Documents</h1>
+    <p>Client: {{currentClient}}</p>
+    <div class="col-lg-10" >
+        <form class="form" role="form" name="documentForm"> 
+        <table class="table" >
+            <tr><th></th><td><span STYLE="margin-left: 15px">Locked</span><span STYLE="margin-left: 25px">Empty</span></td></tr>
+            <!--DYNAMIC ROWS Document Templates-->            
+            <tr ng-repeat="documentTemplate in documentTemplates">
+              <th>{{documentTemplate.name}}</th>
+              <td><input type="checkbox" aria-label="Check" ng-model=documentTemplate.locked>
+                  <input type="checkbox" aria-label="Check" ng-model=documentTemplate.empty>
+                 <a ng-click="downloadDocumentTemplate(documentTemplate.url)" class="btn btn-small btn-primary">Download</a>
+              </td>              
+            </tr>
+            <!--END OF DYNAMIC ROWS-->
+            <!--DYNAMIC ROWS Documents-->            
+            <tr ng-repeat="currentClientDocument in currentClientDocuments">
+              <th>{{currentClientDocument.name}}</th>
+              <td>
+                  <input type="checkbox" aria-label="Check" ng-model=currentClientDocument.locked>
+                  <input type="checkbox" aria-label="Check" ng-model=currentClientDocument.empty>
+                 <a ng-click="downloadDocument(currentClientDocument.url)" class="btn btn-small btn-primary">Download</a>
+                 <a ng-click="deleteDocument(currentClientDocument.uid,currentClientDocument.url,currentClientDocument.name)" class="btn btn-small btn-primary">Delete</a></td>              
+            </tr>
+            <!--END OF DYNAMIC ROWS-->
+            <tr><th></th></tr>
+            <!--Upload Document-->
+            <tr><th><input class="form-control" id="documentName" type="text"
+                        ng-model="filename" placeholder="{{filename}}"/>
+                    <input type="file" onchange="angular.element(this).scope().uploadDocument(this)"  name="filename"  id="nameImg" multiple></th>
+                  <td><a type="submit" ng-click="documentUploadDB()" class="btn btn-small btn-primary">Add Document</a></td></tr>
+            <tr><th><p>{{fileUploadStatus}}</p> <li ng-repeat="file in files">{{file.name}}</li></th></tr>
+        </table>
+        </form>
+    </div>
+</div>
+

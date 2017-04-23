@@ -31,14 +31,24 @@
     <script>
       // Initialize Firebase
       var config = {
-        apiKey: "AIzaSyBua9WsFjdRrQUtWMGmHdfFG2fpFJ98Ppg",
-        authDomain: "wtpa-1479834006191.firebaseapp.com",
-        databaseURL: "https://wtpa-1479834006191.firebaseio.com",
-        storageBucket: "wtpa-1479834006191.appspot.com",
-        messagingSenderId: "831524360274"
+        apiKey: "AIzaSyCDIpu2kuGJ1GEgdsix2HBXxh9BbXVhRSg", 
+        authDomain: "hatza-692c7.firebaseapp.com", 
+        databaseURL: "https://hatza-692c7.firebaseio.com/", 
+        storageBucket: "hatza-692c7.appspot.com",
+        messagingSenderId: "818303894622"
       };
-      var Wtpa = firebase.initializeApp(config);
-      console.log("This should say [DEFAULT]: "+Wtpa.name);
+      var HATZA = firebase.initializeApp(config);
+      console.log("This should say [DEFAULT]: "+HATZA.name);
+//      firebase.auth().onAuthStateChanged(function(user, $scope) {
+//        if (user) {
+//          // User is signed in.
+//          console.log("Loggedin - User "+user.uid);
+////          $scope.user_id = user.uid
+//        } else {
+//          // No user is signed in.
+//          console.log("NOT loggedin User "+user);
+//        }
+//      });
     </script>
 
     <!-- Our application -->
@@ -46,7 +56,7 @@
     <script src="js/custom.js"></script>
 
   </head>
-  <body ng-app="WTPA-App">
+  <body ng-app="HATZA-App">
     <div ng-include src="'header.html'"></div>
       <div id="fb-root"></div>
 
@@ -67,8 +77,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li><a href="index.html#/home">Home <span class="sr-only">(current)</span></a></li> <!--  class="active" -->
-                <li><a href="index.html#/dashboard">Dashboard</a></li>
-                <li><a href="index.html#/account">Account</a></li>
+                <li><a href="index.html#/dashboard/home">Dashboard</a></li>
+                <li><a href="index.html#/account">Calendar</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
 
@@ -99,12 +109,16 @@
  </div>
 
     </div>
-
+    <script src="modules/clients/ClientAccountController.js"></script>  
+    <script src="modules/clients/ClientWorkBreakdownController.js"></script>    
+    <script src="modules/clients/ClientsController.js"></script>  
+    <script src="modules/documents/ClientDocumentsController.js"></script>  
+    <script src="modules/documents/DocumentTemplatesController.js"></script>  
+    <script src="modules/diary/DiaryController.js"></script>  
+    <script src="modules/home/HomeController.js"></script>
     <script src="modules/account/AccountController.js"></script>
+    <script src="modules/dashboard/DocumentsController.js"></script>
     <script src="modules/profile/ProfileController.js"></script>
-    <script src="modules/events/ListController.js"></script>
-    <script src="modules/events/AddController.js"></script>
-    <script src="modules/events/EditController.js"></script>
 
   </body>
 </html>

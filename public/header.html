@@ -2,6 +2,7 @@
 <meta charset="utf-8">
     <script type="text/javascript">
       initApp = function() {
+          console.log("HEADER init");
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
             // User is signed in.
@@ -11,28 +12,12 @@
             var photoURL = user.photoURL;
             var uid = user.uid;
             var providerData = user.providerData;
-            
-//            var jsonProviderData = JSON.parse(user.providerData);            
-//            console.log("  Name: "+(jsonProviderData.displayName));
-//            document.getElementById('username').innerHTML = displayName + ", "
             console.log("  Name: "+displayName);
             console.log("  email "+email);
             console.log("  photoURL "+photoURL);
-            user.getToken().then(function(accessToken) {                
-//              document.getElementById('sign-in-status').textContent = 'Signed in';
-//              document.getElementById('account-details').textContent = JSON.stringify({
-//                displayName: displayName,
-//                email: email,
-//                emailVerified: emailVerified,
-//                photoURL: photoURL,
-//                uid: uid,
-//                accessToken: accessToken,
-//                providerData: providerData
-//              }, null, '  ');
-            });
-            
-            
-            
+            $scope.user = user;
+            user.getToken().then(function(accessToken) {
+            });  
           } else {
               window.location = "login.html"; // User is signed out.Redirect to login page
           }
@@ -40,8 +25,8 @@
           console.log(error);
         });
         
-         var user = firebase.auth().currentUser;
-
+        var user = firebase.auth().currentUser;
+        console.log("HEADER User"+user)
         if (user != null) {
           user.providerData.forEach(function (profile) {
             console.log("Sign-in provider: "+profile.providerId);
@@ -51,15 +36,14 @@
             console.log("  Photo URL: "+profile.photoURL);
           });
         }
+        else{
+            console.log("HEADER User IS NULL")
+        }
       };
 
       window.addEventListener('load', function() {
         initApp()
       });
-    </script>
-    
-    <script>
-       
     </script>
     
     <script>

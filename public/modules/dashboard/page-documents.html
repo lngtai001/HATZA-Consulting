@@ -6,15 +6,19 @@
         
         <table class="table" >
             <tr>
+              <th></th>
+              <td><span STYLE="margin-left: 15px">Locked</span><span STYLE="margin-left: 25px">Empty</span></td>        
+            </tr>
+            <tr>
               <th>NDA</th>
-              <td><input type="checkbox" aria-label="Check">
+              <td><input type="checkbox" aria-label="Check"><input type="checkbox" aria-label="Check">
                 <a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Upload</a>
                 <a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Download</a>
                 <a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Delete</a></td>              
             </tr>
             <tr>
               <th>ID</th>
-              <td><input type="checkbox" aria-label="Check">
+              <td><input type="checkbox" aria-label="Check"><input type="checkbox" aria-label="Check">
                 <a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Upload</a>
                 <a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Download</a>
                 <a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Delete</a></td>              
@@ -22,7 +26,7 @@
             
             <tr>
               <th>Proof of address</th>
-              <td><input type="checkbox" aria-label="Check">
+              <td><input type="checkbox" aria-label="Check"><input type="checkbox" aria-label="Check">
                 <a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Upload</a>
                 <a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Download</a>
                 <a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Delete</a></td>              
@@ -30,19 +34,47 @@
             
             <tr>
               <th>Other</th>
-              <td><input type="checkbox" aria-label="Check">
+              <td><input type="checkbox" aria-label="Check"><input type="checkbox" aria-label="Check">
                 <a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Upload</a>
                 <a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Download</a>
                 <a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Delete</a></td>              
             </tr>
-            <tr>
-              <th>Add Document</th>
-              <td><a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Add</a>             
+            
+            <!--DYNAMIC ROWS-->            
+            <tr ng-repeat="FBUserdocument in FBUserdocuments">
+              <th>{{FBUserdocument.name}}</th>
+              <td><input type="checkbox" aria-label="Check"><input type="checkbox" aria-label="Check">
+                <a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Upload</a>
+                <a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Download</a>
+                <a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Delete</a></td>              
             </tr>
-            <tr>
+            <!--END OF DYNAMIC ROWS-->
+            
+             <tr>
               <th></th>
-              <td><a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Submit</a>             
+              <td><a href="#/edit/{{marker.$id}}" class="btn btn-small btn-primary">Lock and submit documents</a> </td>             
             </tr>
+            <tr>
+              <th><form class="form" role="form"> 
+                      <input class="form-control" id="documentName" type="text"
+                            ng-model="document.name"/>
+                  </form>  </th>
+                <td><a ng-click="addDocument()" class="btn btn-small btn-primary">Add Document</a></td>          
+            </tr>
+            
+            <tr>
+                <th>
+                    <form class="form" role="form">
+                        <input type="file" name="file"  onchange="angular.element(this).scope().uploadFile(this.files)" id="nameImg">
+                        <br />
+<!--                        <span class="input-group-btn">
+                                <a ng-click="uploadFile()" class="btn btn-small btn-primary">Upload File</a>
+                         </span>-->
+                    </form>
+                    <img ng-src="{{ thumbnail.dataUrl }}" /> <!--Display the image -->
+                </th>
+            </tr>
+
            
         </table>
         
